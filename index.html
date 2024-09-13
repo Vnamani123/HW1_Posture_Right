@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Teachable Machine Image Model - p5.js and ml5.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+  <script src="https://unpkg.com/mqtt@4.2.6/dist/mqtt.min.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #header {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 4;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Shadow for better visibility */
+    }
+
+    #title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #description {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+
+    #video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    #video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #canvas-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+
+    #canvas {
+      width: 30%;
+      height: 30%;
+    }
+
+    #label-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="video-container">
+    <iframe id="video" src="https://www.youtube.com/embed/sxt4YCIsn2I?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div id="canvas-container">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <div id="label-container"></div>
+
+  <div id="header">
+    <div id="title">Posture Right</div>
+    <div id="description">This is a posture classifier that blurs YouTube videos when you don't sit straight made with teachable machine and p5.js. </div>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+
+</html>
